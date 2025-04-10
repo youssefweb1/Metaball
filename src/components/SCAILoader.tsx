@@ -3,37 +3,22 @@ import { gsap } from 'gsap';
 
 interface LoaderStep {
   title: string;
-  content: string;
+  content: string | JSX.Element;
 }
 
 const steps: LoaderStep[] = [
   {
     title: "Welcome",
-    content: "Welcome and special thanks to SCAI — the official sponsor and innovation partner."
-  },
-  {
-    title: "About SCAI",
-    content: "National AI Champion – In 2021, the Saudi Company for Artificial Intelligence (SCAI) emerged as a national AI champion driving innovation that positions the Kingdom as a global hub for AI excellence."
-  },
-  {
-    title: "Growth and Impact",
-    content: "Aligned with PIF's vision, SCAI builds local capabilities, forges strategic partnerships, and leads in tech advancements."
-  },
-  {
-    title: "Transformation",
-    content: "Focused on creating sustainable value both in Saudi Arabia and globally, SCAI's story is one of transformation, innovation, and commitment to the AI ecosystem."
-  },
-  {
-    title: "Strategic Objectives",
-    content: "Customer Centricity, Value, Sustainability, Collaboration."
-  },
-  {
-    title: "Contact & Opportunities",
-    content: "Want to speak with an AI expert? Explore partnerships? Discover career or media opportunities?"
+    content: "Welcome and thank you to SCAI for organizing this exciting global competition."
   },
   {
     title: "Credits",
-    content: "This experience is proudly presented by the MetaBall Team. Technical implementation by developer Youssef El-Sobahy."
+    content: (
+      <>
+        This experience is proudly presented by the MetaBall Team, with technical implementation by developer <br />
+        <span className="text-[#00FF94]">Youssef El-Sabbahy</span>.
+      </>
+    )
   }
 ];
 
@@ -65,23 +50,36 @@ export default function SCAILoader({ onComplete }: { onComplete: () => void }) {
       duration: 1
     });
 
-    // Animate each step
-    stepRefs.current.forEach((step, index) => {
-      tl.from(step, {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        ease: "power2.out"
-      }, index * 2.5); // Delay between steps
+    // Animate each step with proper delays
+    steps.forEach((step, index) => {
+      const stepEl = stepRefs.current[index];
 
-      // Hide previous step (except for the last one)
-      if (index < steps.length - 1) {
-        tl.to(step, {
+      if (stepEl) {
+        tl.from(stepEl, {
           opacity: 0,
-          y: -50,
-          duration: 0.5,
-          delay: 1.5
-        });
+          y: 50,
+          duration: 1,
+          ease: "power2.out",
+        }, index * 2); // Increase the delay between steps
+
+        if (index < steps.length - 1) {
+          tl.to(stepEl, {
+            opacity: 0,
+            y: -50,
+            duration: 0.5,
+            delay: 1 // Add a small delay before hiding each step
+          });
+        }
+
+        if (index === steps.length - 1) {
+          // For the last step (Credits), add a delay before hiding it
+          tl.to(stepEl, {
+            opacity: 0,
+            y: -50,
+            duration: 0.5,
+            delay: 2 // Wait for 3 seconds before hiding the last step
+          });
+        }
       }
     });
 
@@ -96,7 +94,7 @@ export default function SCAILoader({ onComplete }: { onComplete: () => void }) {
         <div
           key={index}
           ref={el => stepRefs.current[index] = el}
-          className="absolute max-w-2xl mx-auto p-8 text-center"
+          className="absolute max-w-sm p-6 text-center mx-auto"
         >
           <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#00FF94] to-[#00B4FF] bg-clip-text text-transparent">
             {step.title}
