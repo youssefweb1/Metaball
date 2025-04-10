@@ -76,7 +76,7 @@ http://localhost:5173
 ---
 
 ## الديمو 
-https://meetaball.netlify.app/
+https://meetabaall.netlify.app
 
 ---
 صنع بكل ❤️ بواسطة فريق MetaBall
