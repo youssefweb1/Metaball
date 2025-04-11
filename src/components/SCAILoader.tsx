@@ -15,7 +15,7 @@ const steps: LoaderStep[] = [
     title: "Credits",
     content: (
       <>
-        This experience is proudly presented by the MetaBall Team, with technical implementation by developer <br />
+        This experience is proudly presented by the MetaBall Team with technical implementation by Developer /  <br />
         <span className="text-[#00FF94]">Youssef El-Sabbahy</span>.
       </>
     )
@@ -28,11 +28,24 @@ export default function SCAILoader({ onComplete }: { onComplete: () => void }) {
   const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const isHomePage = window.location.pathname === '/';
     const hasSeenLoader = localStorage.getItem('hasSeenLoader');
-    if (hasSeenLoader) {
+    
+    // Skip loader if not on home page or has seen loader (and not on home page)
+    if (!isHomePage || (hasSeenLoader && !isHomePage)) {
       onComplete();
       return;
     }
+
+    // Reset loader state when on home page
+    if (isHomePage) {
+      localStorage.removeItem('hasSeenLoader');
+    }
+
+    // Initial setup - Set initial positions
+    gsap.set(containerRef.current, { opacity: 1 });
+    gsap.set(stepRefs.current, { opacity: 0, y: 50 });
+    gsap.set(overlayRef.current, { opacity: 1 });
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -42,44 +55,32 @@ export default function SCAILoader({ onComplete }: { onComplete: () => void }) {
           duration: 1.5,
           ease: "power2.inOut",
           onComplete: () => {
-            gsap.to(overlayRef.current, {
-              opacity: 0,
-              duration: 1,
-              ease: "power2.inOut",
-              onComplete
-            });
+            if (overlayRef.current) {
+              gsap.to(overlayRef.current, {
+                opacity: 0,
+                duration: 1,
+                ease: "power2.inOut",
+                onComplete
+              });
+            }
           }
         });
       }
-    });
-
-    // Initial setup
-    gsap.set([containerRef.current, ...stepRefs.current], { opacity: 0 });
-    gsap.set(overlayRef.current, { opacity: 1 });
-
-    // Fade in container
-    tl.to(containerRef.current, {
-      opacity: 1,
-      duration: 1.5,
-      ease: "power2.inOut"
     });
 
     // Animate each step
     steps.forEach((_, index) => {
       const stepEl = stepRefs.current[index];
       if (stepEl) {
-        // Fade in and slide up
         tl.to(stepEl, {
           opacity: 1,
           y: 0,
-          duration: 1.5,
+          duration: 1,
           ease: "power2.out",
-        }, `>-0.5`);
+        }, index === 0 ? ">" : ">-0.5");
 
-        // Hold for a moment
-        tl.to({}, { duration: 1.5 });
+        tl.to({}, { duration: 2 }); // Hold for 2 seconds
 
-        // Fade out and slide up (except for last step)
         if (index < steps.length - 1) {
           tl.to(stepEl, {
             opacity: 0,
@@ -88,14 +89,12 @@ export default function SCAILoader({ onComplete }: { onComplete: () => void }) {
             ease: "power2.in",
           });
         } else {
-          // Last step stays longer
-          tl.to({}, { duration: 1 });
           tl.to(stepEl, {
             opacity: 0,
             y: -50,
             duration: 1.5,
             ease: "power2.in",
-          });
+          }, "+=1");
         }
       }
     });
@@ -106,17 +105,17 @@ export default function SCAILoader({ onComplete }: { onComplete: () => void }) {
     <>
       <div 
         ref={overlayRef}
-        className="fixed inset-0 z-[60] bg-black"
+        className="fixed inset-0 z-[60] bg-black pointer-events-none"
       />
       <div 
         ref={containerRef}
-        className="fixed inset-0 z-[55] flex items-center justify-center bg-black bg-opacity-95"
+        className="fixed inset-0 z-[61] flex items-center justify-center bg-black bg-opacity-95"
       >
         {steps.map((step, index) => (
           <div
             key={index}
             ref={el => stepRefs.current[index] = el}
-            className="absolute max-w-xl p-4 text-center mx-auto transform translate-y-[50px]"
+            className="absolute max-w-xl p-4 text-center mx-auto"
           >
             <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-[#00FF94] to-[#00B4FF] bg-clip-text text-transparent">
               {step.title}
