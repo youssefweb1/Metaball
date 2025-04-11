@@ -1,133 +1,127 @@
+# MetaBall - Immersive VR Football Experience 🎮⚽
 
+![MetaBall Banner](https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)
 
-# MetaBall -- مستقبل مشاهدة كرة القدم 🚀
+## Overview
 
-![MetaBall VR](https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&q=80)
+MetaBall is revolutionizing football viewing through cutting-edge VR technology, specifically designed for the FIFA World Cup 2034 in Saudi Arabia. Our platform transforms how fans experience football matches by providing an immersive, 360-degree virtual reality environment that brings the stadium atmosphere directly to viewers, no matter where they are in the world.
 
-## نبذة عن المشروع 🎯
+## 🌟 Key Features
 
-MetaBall هو مشروع مبتكر تم تطويره بواسطة فريق MetaBall في مسابقة SCAI. يهدف المشروع إلى إحداث ثورة في طريقة مشاهدة مباريات كرة القدم من خلال تقنية الواقع الافتراضي (VR) لكأس العالم FIFA 2034 في المملكة العربية السعودية.
+- **360° VR Experience**: Immersive virtual reality viewing of football matches
+- **Multi-Camera Angles**: Switch between different viewing positions in real-time
+- **Social Integration**: Watch matches with friends in virtual spaces
+- **Live Statistics**: Real-time match stats and player information
+- **Interactive UI**: Modern, responsive interface with smooth animations
+- **Adaptive Streaming**: High-quality video streaming with different quality options
+- **Access Control**: Secure match access through unique codes
+- **Cross-Platform**: Compatible with major VR headsets
 
----
+## 📱 Pages & Features
 
-## ✅ المميزات الرئيسية
+### Main Pages
+- **Home** (`/`): Landing page with hero section, key features, and statistics
+- **How It Works** (`/how-it-works`): Step-by-step guide to using MetaBall
+- **Demo** (`/demo`): Access to sample matches and VR demonstrations
+- **Features** (`/features`): Detailed platform capabilities
+- **Pricing** (`/pricing`): Subscription plans and comparisons
+- **Contact** (`/contact`): Get in touch form and contact information
 
--- **واجهة متجاوبة وجذابة**  
-تم تصميم الموقع باستخدام تقنيات حديثة لتوفير تجربة سلسة ومريحة على جميع الأجهزة، سواء الكمبيوتر أو الجوال.
+### Additional Pages
+- **About** (`/about`): Company information and vision
+- **FAQ** (`/faq`): Frequently asked questions
+- **Help Center** (`/help`): Support resources and documentation
+- **VR Experience** (`/vr`): The main VR viewing interface
+- **Terms** (`/terms`): Terms of service
+- **Privacy** (`/privacy`): Privacy policy
 
--- **مشاهدة تفاعلية بتقنية الواقع الافتراضي**  
-يتيح للمستخدمين تجربة فريدة لمشاهدة مباريات كرة القدم داخل بيئة تفاعلية ثلاثية الأبعاد باستخدام تقنية الفيديو 360 درجة.
+## 🛠 Technologies Used
 
--- **مشغل فيديو متكامل**  
-يدعم التشغيل، الإيقاف المؤقت، وضع ملء الشاشة، ووضع الواقع الافتراضي، لتجربة مشاهدة احترافية ومتكاملة.
+### Core Technologies
+- **React 18**: Modern UI development with hooks and components
+- **TypeScript**: Type-safe JavaScript development
+- **Vite**: Next-generation frontend tooling
+- **Tailwind CSS**: Utility-first CSS framework
 
--- **نظام أكواد خاصة للفيديوهات**  
-كل فيديو له كود خاص به.
+### Libraries & Tools
+- **Framer Motion**: Advanced animations and transitions
+- **GSAP**: Professional-grade animations
+- **React Router**: Client-side routing
+- **A-Frame**: WebVR framework
+- **Lucide React**: Modern icon system
+- **React Intersection Observer**: Scroll-based animations
 
--- **لودر ترحيبي تفاعلي يظهر عند أول زيارة**  
-يعرض شكرًا خاصًا لشركة SCAI.
+## 🚀 Getting Started
 
--- **انتقال تلقائي لأعلى الصفحة عند الضغط على الروابط**  
-عند الضغط على أي زر أو رابط، يتم التمرير تلقائيًا إلى أعلى الصفحة مع تأثير بصري سلس لعرض المحتوى الجديد.
+### Prerequisites
+- Node.js (v18 or higher)
+- npm (v8 or higher)
 
--- **تنفيذ تقني احترافي**  
-هذا العمل مقدم من فريق MetaBall.  
-والتنفيذ البرمجي والتقني تم بواسطة: **المطور يوسف الصباحي**.
+### Installation
 
----
-
-## صفحات الموقع
-
--- **الصفحة الرئيسية**  
-تحتوي على مقدمة الموقع والروابط الأساسية للتنقل بين الصفحات.  
-تُبرز فكرة المشروع والتقنيات المستخدمة فيه.
-
--- **كيف تعمل المنصة**  
-شرح مبسط لطريقة استخدام الموقع وتقنية الواقع الافتراضي.  
-توضح خطوات الدخول للتجربة والمميزات التقنية.
-
--- **المميزات**  
-صفحة توضح أبرز مزايا المنصة التقنية والتجريبية.  
-تشمل تجربة الواقع الافتراضي، الأكواد، التصميم، وسهولة الاستخدام.
-
--- **الأسعار**  
-في حال تم تفعيل الخطط المدفوعة مستقبلًا.  
-توضح أنواع الاشتراكات والخدمات التي يتم تقديمها لكل خطة.
-
--- **تواصل معنا**  
-نموذج لتمكين المستخدمين من إرسال استفسارات أو مقترحات.  
-يشمل بيانات التواصل والدعم الفني.
-
--- **جرّب الآن**  
-زر مباشر يوجه المستخدم إلى صفحة الديمو.  
-يسهل الوصول لتجربة العرض الافتراضي بسرعة.
-
--- **من نحن**  
-صفحة تعرف بالمشروع وفريق العمل والرؤية المستقبلية.
-
--- **الدعم الفني**  
-تقدم معلومات وإرشادات لحل المشاكل التقنية إن وجدت.
-
--- **الأسئلة الشائعة**  
-تحتوي على إجابات لأكثر الأسئلة المتكررة حول استخدام المنصة.
-
--- **مركز المساعدة**  
-يشمل تعليمات تفصيلية لاستخدام الموقع والتجربة التفاعلية.
-
--- **شروط الاستخدام**  
-تشرح القوانين والسياسات التي تنظم استخدام المنصة.
-
--- **سياسة الخصوصية**  
-توضح طريقة التعامل مع بيانات المستخدمين والخصوصية.
-
----
-
-## التقنيات المستخدمة 💻
-
-- React.js + TypeScript
-- Framer Motion للحركات
-- GSAP للتحريكات المتقدمة
-- Tailwind CSS للتصميم
-
-## متطلبات التشغيل 📋
-
-- Node.js (الإصدار 18 أو أحدث)
-- npm (يأتي مع Node.js)
-- متصفح حديث يدعم WebGL
-
-## طريقة التشغيل 🚀
-
-1. قم بتنزيل المشروع:
+1. Clone the repository:
 ```bash
-git clone https://github.com/youssefweb1/metaball.git
+git clone https://github.com/your-username/metaball.git
 cd metaball
 ```
 
-2. قم بتثبيت الحزم المطلوبة:
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-3. قم بتشغيل المشروع:
+3. Start the development server:
 ```bash
 npm run dev
 ```
 
-4. افتح المتصفح على العنوان:
+4. Open your browser and visit:
 ```
 http://localhost:5173
 ```
 
-## الفريق 👥
+## 🏗 Project Structure
 
-تم تطوير هذا المشروع بواسطة فريق MetaBall في مسابقة SCAI:
-- [يوسف الصباحي احمد] - [المسئول التقني ومطور الموقع]
+```
+metaball/
+├── src/
+│   ├── components/     # Reusable UI components
+│   ├── pages/         # Page components
+│   ├── utils/         # Utility functions
+│   ├── App.tsx        # Main application component
+│   └── main.tsx       # Application entry point
+├── public/            # Static assets
+└── index.html         # HTML template
+```
 
----
+## 💻 Development
 
-## الديمو 
+### Available Scripts
+
+- `npm run dev`: Start development server
+- `npm run build`: Build for production
+- `npm run preview`: Preview production build
+- `npm run lint`: Run ESLint
+
+## 🌐 Deployment
+
+The project is deployed on Netlify and can be accessed at:
 [https://meetabaall.netlify.app](https://meetabaall.netlify.app)
 
+## 👥 Credits
+
+### Development Team
+- **Technical Implementation**: Youssef El-Sabbahy
+- **Project**: MetaBall Team
+
+## 📄 License
+
+This project is proprietary software. All rights reserved.
+
+## 🤝 Contributing
+
+While this is a proprietary project, we welcome feedback and suggestions. Please contact the team through official channels for any inquiries.
+
 ---
 
-صنع بكل ❤️ بواسطة فريق MetaBall
+Made with ⚽ by MetaBall Team | Transforming Football Viewing Forever
