@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
@@ -68,14 +67,14 @@ export default function ContactPage() {
                   <Mail className="h-6 w-6 text-neon-green" />
                   <div>
                     <h3 className="font-medium">Email</h3>
-                    <p className="text-gray-300">contact@metaball.com</p>
+                    <p className="text-gray-300">yooooussef@yahoo.com</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
                   <Phone className="h-6 w-6 text-neon-green" />
                   <div>
                     <h3 className="font-medium">Phone</h3>
-                    <p className="text-gray-300">+1 (555) 123-4567</p>
+                    <p className="text-gray-300">+966581002723</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">

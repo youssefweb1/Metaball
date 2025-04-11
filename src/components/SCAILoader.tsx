@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
 interface LoaderStep {
@@ -25,6 +25,7 @@ const steps: LoaderStep[] = [
 export default function SCAILoader({ onComplete }: { onComplete: () => void }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const hasSeenLoader = localStorage.getItem('hasSeenLoader');
@@ -38,46 +39,62 @@ export default function SCAILoader({ onComplete }: { onComplete: () => void }) {
         localStorage.setItem('hasSeenLoader', 'true');
         gsap.to(containerRef.current, {
           opacity: 0,
-          duration: 1,
-          onComplete
+          duration: 1.5,
+          ease: "power2.inOut",
+          onComplete: () => {
+            gsap.to(overlayRef.current, {
+              opacity: 0,
+              duration: 1,
+              ease: "power2.inOut",
+              onComplete
+            });
+          }
         });
       }
     });
 
-    // Initial fade in
-    tl.from(containerRef.current, {
-      opacity: 0,
-      duration: 1
+    // Initial setup
+    gsap.set([containerRef.current, ...stepRefs.current], { opacity: 0 });
+    gsap.set(overlayRef.current, { opacity: 1 });
+
+    // Fade in container
+    tl.to(containerRef.current, {
+      opacity: 1,
+      duration: 1.5,
+      ease: "power2.inOut"
     });
 
-    // Animate each step with proper delays
-    steps.forEach((step, index) => {
+    // Animate each step
+    steps.forEach((_, index) => {
       const stepEl = stepRefs.current[index];
-
       if (stepEl) {
-        tl.from(stepEl, {
-          opacity: 0,
-          y: 50,
-          duration: 1,
+        // Fade in and slide up
+        tl.to(stepEl, {
+          opacity: 1,
+          y: 0,
+          duration: 1.5,
           ease: "power2.out",
-        }, index * 2); // Increase the delay between steps
+        }, `>-0.5`);
 
+        // Hold for a moment
+        tl.to({}, { duration: 1.5 });
+
+        // Fade out and slide up (except for last step)
         if (index < steps.length - 1) {
           tl.to(stepEl, {
             opacity: 0,
             y: -50,
-            duration: 0.5,
-            delay: 1 // Add a small delay before hiding each step
+            duration: 1,
+            ease: "power2.in",
           });
-        }
-
-        if (index === steps.length - 1) {
-          // For the last step (Credits), add a delay before hiding it
+        } else {
+          // Last step stays longer
+          tl.to({}, { duration: 1 });
           tl.to(stepEl, {
             opacity: 0,
             y: -50,
-            duration: 0.5,
-            delay: 2 // Wait for 3 seconds before hiding the last step
+            duration: 1.5,
+            ease: "power2.in",
           });
         }
       }
@@ -86,24 +103,30 @@ export default function SCAILoader({ onComplete }: { onComplete: () => void }) {
   }, [onComplete]);
 
   return (
-    <div 
-      ref={containerRef}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black"
-    >
-      {steps.map((step, index) => (
-        <div
-          key={index}
-          ref={el => stepRefs.current[index] = el}
-          className="absolute max-w-sm p-6 text-center mx-auto"
-        >
-          <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#00FF94] to-[#00B4FF] bg-clip-text text-transparent">
-            {step.title}
-          </h2>
-          <p className="text-xl text-gray-300">
-            {step.content}
-          </p>
-        </div>
-      ))}
-    </div>
+    <>
+      <div 
+        ref={overlayRef}
+        className="fixed inset-0 z-[60] bg-black"
+      />
+      <div 
+        ref={containerRef}
+        className="fixed inset-0 z-[55] flex items-center justify-center bg-black bg-opacity-95"
+      >
+        {steps.map((step, index) => (
+          <div
+            key={index}
+            ref={el => stepRefs.current[index] = el}
+            className="absolute max-w-xl p-4 text-center mx-auto transform translate-y-[50px]"
+          >
+            <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-[#00FF94] to-[#00B4FF] bg-clip-text text-transparent">
+              {step.title}
+            </h2>
+            <p className="text-2xl text-gray-300 leading-relaxed">
+              {step.content}
+            </p>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }

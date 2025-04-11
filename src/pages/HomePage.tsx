@@ -1,13 +1,8 @@
 // HomePage.tsx
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import { 
-  Gamepad2,
-  Users,
-  Camera,
-  Globe2,
   ArrowRight,
   CheckCircle2,
   XCircle,
@@ -16,11 +11,6 @@ import {
 import { gsap } from 'gsap';
 
 export default function HomePage() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   const heroRef = useRef(null);
 
   useEffect(() => {

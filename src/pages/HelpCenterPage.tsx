@@ -1,8 +1,7 @@
-import React from 'react';
+// Remove unused import
 import { motion } from 'framer-motion';
 import { 
   BookOpen, 
-  HelpCircle, 
   MessageCircle, 
   Video,
   Settings,

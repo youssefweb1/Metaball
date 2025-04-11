@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Facebook,
@@ -17,7 +16,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4 gradient-text">MetaBall</h3>
+          <Link to="/" className="flex items-center space-x-2 mb-5">
+  <img src="/logo.jpg" alt="MetaBall Logo" className="w-[10rem]" />
+</Link>
             <p className="text-gray-400 mb-4">
               Revolutionizing football viewing through immersive VR technology.
             </p>
@@ -97,11 +98,11 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-center space-x-2">
                 <Mail size={20} className="text-neon-green" />
-                <span className="text-gray-400">contact@metaball.com</span>
+                <span className="text-gray-400">yooooussef@yahoo.com</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone size={20} className="text-neon-green" />
-                <span className="text-gray-400">+1 (555) 123-4567</span>
+                <span className="text-gray-400">+966581002723</span>
               </li>
               <li className="flex items-center space-x-2">
                 <MapPin size={20} className="text-neon-green" />
@@ -112,7 +113,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
-          <p>&copy; 2034 MetaBall. All rights reserved.</p>
+          <p>&copy; 2025 MetaBall. All rights reserved.</p>
         </div>
       </div>
     </footer>

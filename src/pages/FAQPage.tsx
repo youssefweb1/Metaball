@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronUp, Search } from 'lucide-react';
 
@@ -87,7 +87,7 @@ export default function FAQPage() {
           </motion.div>
 
           <div className="max-w-3xl mx-auto">
-            {categories.map((category, categoryIndex) => (
+            {categories.map((category) => (
               <div key={category} className="mb-8">
                 <h2 className="text-2xl font-bold mb-4 gradient-text">{category}</h2>
                 <div className="space-y-4">

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Gamepad2 } from 'lucide-react';
+// import { Gamepad2 } from 'lucide-react';
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,10 +32,9 @@ export default function Navigation() {
     }`}>
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2">   
-<Gamepad2 className="h-8 w-8 text-neon-green" /> 
-               <h3 className="text-lg font-bold gradient-text">MetaBall</h3>
-          </Link>
+        <Link to="/" className="flex items-center space-x-2 ">
+  <img src="/logo.jpg" alt="MetaBall Logo" className="w-[10rem]" />
+</Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">

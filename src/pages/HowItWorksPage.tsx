@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { Camera, Users, Gamepad2 } from 'lucide-react';
 
 export default function HowItWorksPage() {
-  const [ref, inView] = useInView({
+  const [ref] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
