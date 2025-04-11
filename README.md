@@ -124,4 +124,4 @@ While this is a proprietary project, we welcome feedback and suggestions. Please
 
 ---
 
-Made with ⚽ by MetaBall Team | Transforming Football Viewing Forever
+Made with ⚽ by MetaBall Team | Youssef Elsabbahy Ahmed | Transforming Football Viewing Forever
